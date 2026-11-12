@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXT GEN ACADEMY | Made by Maheen Adil</title>
+    <title>THE NEXT GEN ACADEMY | Made by Maheen Adil</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -27,8 +27,8 @@
                         brand: {
                             blue: '#0D4C85',
                             amber: '#E68A1E',
-                            dark: '#070F1E',
-                            card: '#0D1B2A',
+                            dark: '#050B14',
+                            card: '#0A1628',
                             accent: '#38BDF8'
                         }
                     }
@@ -37,13 +37,14 @@
         }
     </script>
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #070F1E; color: #F3F4F6; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050B14; color: #F8FAFC; overflow-x: hidden; }
         h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
-        .glass-panel { background: rgba(13, 27, 42, 0.92); backdrop-filter: blur(20px); border: 1px solid rgba(230, 138, 30, 0.25); }
-        .glow-blue { box-shadow: 0 0 35px rgba(13, 76, 133, 0.5); }
-        .glow-amber { box-shadow: 0 0 35px rgba(230, 138, 30, 0.4); }
+        .glass-panel { background: rgba(10, 22, 40, 0.88); backdrop-filter: blur(24px); border: 1px solid rgba(230, 138, 30, 0.25); }
+        .glow-blue { box-shadow: 0 0 40px rgba(13, 76, 133, 0.4); }
+        .glow-amber { box-shadow: 0 0 45px rgba(230, 138, 30, 0.35); }
+        .hero-gradient { background: radial-gradient(circle at 50% 20%, rgba(13, 76, 133, 0.4) 0%, rgba(230, 138, 30, 0.18) 45%, transparent 75%); }
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #070F1E; }
+        ::-webkit-scrollbar-track { background: #050B14; }
         ::-webkit-scrollbar-thumb { background: #E68A1E; border-radius: 4px; }
     </style>
 </head>
@@ -51,22 +52,33 @@
 
     <!-- Global Header / Navbar -->
     <header class="glass-panel sticky top-0 z-50 border-b border-brand-amber/30 px-6 py-4 flex items-center justify-between">
-        <div class="flex items-center space-x-3 cursor-pointer" onclick="app.navigate('home')">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-900 to-brand-amber p-0.5 shadow-xl flex items-center justify-center glow-amber">
+        <div class="flex items-center space-x-3 cursor-pointer group" onclick="app.navigate('home')">
+            <!-- ASAL LOGO EMBLEM (Royal Blue & Warm Amber Tree with Book & Growth Arrow) -->
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-900 to-brand-amber p-0.5 shadow-2xl glow-amber group-hover:scale-105 transition">
                 <div class="w-full h-full bg-brand-dark rounded-2xl flex items-center justify-center relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue/40 to-brand-amber/40"></div>
-                    <i class="fa-solid fa-graduation-cap text-xl text-brand-amber relative z-10 animate-bounce"></i>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue/50 to-brand-amber/40"></div>
+                    <svg viewBox="0 0 100 100" class="w-8 h-8 relative z-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 15C35 15 25 30 25 45C25 55 35 65 45 70V85C45 88 48 90 50 90C52 90 55 88 55 85V70C65 65 75 55 75 45C75 30 65 15 50 15Z" fill="url(#logo-grad)"/>
+                        <path d="M40 35H60V50H40V35Z" fill="#F8FAFC" opacity="0.9"/>
+                        <path d="M30 25L70 75" stroke="#E68A1E" stroke-width="6" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="logo-grad" x1="25" y1="15" x2="75" y2="90" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0D4C85"/>
+                                <stop offset="1" stop-color="#E68A1E"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
                 </div>
             </div>
             <div>
-                <span class="font-display font-extrabold text-lg tracking-wide bg-gradient-to-r from-white via-amber-200 to-brand-amber bg-clip-text text-transparent">NEXT GEN ACADEMY</span>
+                <span class="font-display font-extrabold text-lg tracking-wide bg-gradient-to-r from-white via-amber-200 to-brand-amber bg-clip-text text-transparent">THE NEXT GEN ACADEMY</span>
                 <span class="block text-[10px] tracking-widest text-brand-amber font-bold uppercase">Made by Maheen Adil</span>
             </div>
         </div>
 
         <div id="nav-menu" class="hidden items-center space-x-6 text-sm font-semibold">
-            <button onclick="app.navigate('dashboard')" class="text-slate-300 hover:text-brand-amber transition"><i class="fa-solid fa-th-large mr-1.5"></i>Subjects</button>
-            <button onclick="app.navigate('progress')" class="text-slate-300 hover:text-brand-amber transition"><i class="fa-solid fa-chart-line mr-1.5"></i>Progress Hub</button>
+            <button onclick="app.navigate('dashboard')" class="text-slate-300 hover:text-brand-amber transition flex items-center space-x-1.5"><i class="fa-solid fa-th-large"></i><span>Subjects</span></button>
+            <button onclick="app.navigate('progress')" class="text-slate-300 hover:text-brand-amber transition flex items-center space-x-1.5"><i class="fa-solid fa-chart-line"></i><span>Progress Hub</span></button>
             <div class="flex items-center space-x-3 bg-slate-900/90 px-4 py-1.5 rounded-xl border border-brand-amber/30">
                 <div class="text-right">
                     <div id="nav-student-name" class="text-xs font-bold text-white">Student</div>
@@ -78,93 +90,108 @@
     </header>
 
     <!-- Main Dynamic Views Container -->
-    <main class="flex-grow container mx-auto px-4 py-8 max-w-7xl">
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-7xl relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 hero-gradient pointer-events-none blur-3xl -z-10"></div>
 
-        <!-- WELCOME / LANDING PAGE -->
-        <section id="view-home" class="min-h-[80vh] flex flex-col items-center justify-center text-center space-y-8 py-12">
-            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-blue-950/90 border border-brand-amber/40 text-brand-amber text-xs font-bold tracking-wider uppercase shadow-inner animate-pulse">
+        <!-- ================= PAGE 1: WELCOME / LANDING PAGE ================= -->
+        <section id="view-home" class="min-h-[85vh] flex flex-col items-center justify-center text-center space-y-8 py-12">
+            <div class="inline-flex items-center space-x-2 px-5 py-2 rounded-full bg-blue-950/90 border border-brand-amber/40 text-brand-amber text-xs font-bold tracking-wider uppercase shadow-2xl animate-pulse">
                 <span class="w-2.5 h-2.5 rounded-full bg-brand-amber"></span>
-                <span>The Ultimate Zero-Budget Interactive STEM Academy</span>
+                <span>The Ultimate Interactive STEM Learning Hub</span>
             </div>
 
-            <div class="space-y-4 max-w-3xl">
-                <div class="w-32 h-32 mx-auto rounded-3xl bg-gradient-to-br from-brand-blue via-blue-900 to-brand-amber p-1 shadow-2xl glow-amber">
+            <div class="space-y-6 max-w-4xl">
+                <!-- ASAL LOGO BIG EMBLEM -->
+                <div class="w-36 h-36 mx-auto rounded-3xl bg-gradient-to-br from-brand-blue via-blue-900 to-brand-amber p-1 shadow-2xl glow-amber relative group">
+                    <div class="absolute inset-0 bg-brand-amber/20 rounded-3xl blur-xl group-hover:blur-2xl transition"></div>
                     <div class="w-full h-full bg-brand-dark rounded-[22px] flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue/30 to-brand-amber/30"></div>
-                        <i class="fa-solid fa-tree text-6xl text-brand-amber relative z-10"></i>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue/40 to-brand-amber/40"></div>
+                        <svg viewBox="0 0 100 100" class="w-24 h-24 relative z-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 15C35 15 25 30 25 45C25 55 35 65 45 70V85C45 88 48 90 50 90C52 90 55 88 55 85V70C65 65 75 55 75 45C75 30 65 15 50 15Z" fill="url(#logo-grad-big)"/>
+                            <path d="M40 35H60V50H40V35Z" fill="#F8FAFC" opacity="0.95"/>
+                            <path d="M30 25L70 75" stroke="#E68A1E" stroke-width="7" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="logo-grad-big" x1="25" y1="15" x2="75" y2="90" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#0D4C85"/>
+                                    <stop offset="1" stop-color="#E68A1E"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
                     </div>
                 </div>
                 <h1 class="font-display text-5xl sm:text-7xl font-extrabold tracking-tight text-white">
-                    NEXT GEN <span class="bg-gradient-to-r from-brand-amber to-amber-200 bg-clip-text text-transparent">ACADEMY</span>
+                    THE NEXT GEN <span class="bg-gradient-to-r from-brand-amber via-amber-300 to-amber-500 bg-clip-text text-transparent">ACADEMY</span>
                 </h1>
-                <p class="text-sm font-bold tracking-[0.3em] text-brand-amber uppercase">Made by Maheen Adil</p>
+                <p class="text-sm font-bold tracking-[0.35em] text-brand-amber uppercase">Made by Maheen Adil</p>
             </div>
 
+            <!-- ATTRACTIVE & SENSIBLE TAGLINE -->
             <p class="text-xl sm:text-2xl text-slate-200 font-medium max-w-2xl leading-relaxed">
-                "Where Curiosity Grows Into Mastery — Visualize Complex Concepts, Listen to Voice Explanations, and Ace Every Quiz <span class="text-brand-amber font-bold">(100% Free Forever)</span>."
+                "Level Up Your Mind • Visualize Complex Concepts, Listen to Voice Notes & Master Every Subject Like a Pro."
             </p>
 
             <div class="pt-4">
-                <button onclick="app.navigate('login')" class="px-10 py-5 rounded-2xl bg-gradient-to-r from-brand-blue via-blue-700 to-brand-amber text-white font-display font-bold text-lg tracking-wide shadow-2xl hover:scale-105 transition transform active:scale-95 flex items-center space-x-3 mx-auto glow-amber">
+                <button onclick="app.navigate('login')" class="px-12 py-5 rounded-2xl bg-gradient-to-r from-brand-blue via-blue-700 to-brand-amber text-white font-display font-extrabold text-lg tracking-wide shadow-2xl hover:scale-105 transition transform active:scale-95 flex items-center space-x-3 mx-auto glow-amber">
                     <span>Start Learning Now</span>
                     <i class="fa-solid fa-arrow-right text-base"></i>
                 </button>
             </div>
 
+            <!-- Subject Highlights -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-12 max-w-4xl w-full">
-                <div class="glass-panel p-4 rounded-2xl border-blue-900/40 text-center hover:border-brand-amber transition">
-                    <i class="fa-solid fa-laptop-code text-brand-amber text-2xl mb-2"></i>
+                <div class="glass-panel p-5 rounded-2xl border-brand-amber/30 text-center hover:border-brand-amber transition group cursor-pointer" onclick="app.navigate('login')">
+                    <i class="fa-solid fa-laptop-code text-brand-amber text-3xl mb-3 group-hover:scale-110 transition"></i>
                     <div class="text-sm font-bold text-white">Computer Science</div>
-                    <div class="text-xs text-slate-400">10 Topics & Animations</div>
+                    <div class="text-xs text-slate-400 mt-1">10 Topics & Animations</div>
                 </div>
-                <div class="glass-panel p-4 rounded-2xl border-blue-900/40 text-center hover:border-brand-amber transition">
-                    <i class="fa-solid fa-flask text-brand-amber text-2xl mb-2"></i>
+                <div class="glass-panel p-5 rounded-2xl border-brand-amber/30 text-center hover:border-brand-amber transition group cursor-pointer" onclick="app.navigate('login')">
+                    <i class="fa-solid fa-flask text-brand-amber text-3xl mb-3 group-hover:scale-110 transition"></i>
                     <div class="text-sm font-bold text-white">Chemistry Lab</div>
-                    <div class="text-xs text-slate-400">10 Topics & Animations</div>
+                    <div class="text-xs text-slate-400 mt-1">10 Topics & Animations</div>
                 </div>
-                <div class="glass-panel p-4 rounded-2xl border-blue-900/40 text-center hover:border-brand-amber transition">
-                    <i class="fa-solid fa-dna text-brand-amber text-2xl mb-2"></i>
+                <div class="glass-panel p-5 rounded-2xl border-brand-amber/30 text-center hover:border-brand-amber transition group cursor-pointer" onclick="app.navigate('login')">
+                    <i class="fa-solid fa-dna text-brand-amber text-3xl mb-3 group-hover:scale-110 transition"></i>
                     <div class="text-sm font-bold text-white">Biology Anatomy</div>
-                    <div class="text-xs text-slate-400">10 Topics & Animations</div>
+                    <div class="text-xs text-slate-400 mt-1">10 Topics & Animations</div>
                 </div>
-                <div class="glass-panel p-4 rounded-2xl border-blue-900/40 text-center hover:border-brand-amber transition">
-                    <i class="fa-solid fa-atom text-brand-amber text-2xl mb-2"></i>
+                <div class="glass-panel p-5 rounded-2xl border-brand-amber/30 text-center hover:border-brand-amber transition group cursor-pointer" onclick="app.navigate('login')">
+                    <i class="fa-solid fa-atom text-brand-amber text-3xl mb-3 group-hover:scale-110 transition"></i>
                     <div class="text-sm font-bold text-white">Physics Mechanics</div>
-                    <div class="text-xs text-slate-400">10 Topics & Animations</div>
+                    <div class="text-xs text-slate-400 mt-1">10 Topics & Animations</div>
                 </div>
             </div>
         </section>
 
-        <!-- STUDENT LOGIN / PORTAL PAGE -->
+        <!-- ================= PAGE 2: STUDENT LOGIN / PORTAL PAGE ================= -->
         <section id="view-login" class="hidden min-h-[75vh] flex items-center justify-center py-12">
-            <div class="max-w-md w-full glass-panel p-8 rounded-3xl glow-amber border-brand-amber/40 space-y-6 relative overflow-hidden">
+            <div class="max-w-md w-full glass-panel p-8 sm:p-10 rounded-3xl glow-amber border-brand-amber/40 space-y-6 relative overflow-hidden">
                 <div class="absolute -right-16 -top-16 w-48 h-48 bg-brand-amber/20 rounded-full blur-3xl pointer-events-none"></div>
                 
-                <div class="text-center space-y-2">
-                    <div class="w-14 h-14 mx-auto rounded-2xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-2xl font-bold shadow-lg">
+                <div class="text-center space-y-3">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-3xl font-bold shadow-xl">
                         <i class="fa-solid fa-user-graduate"></i>
                     </div>
-                    <h2 class="font-display text-2xl font-bold text-white">Student Portal</h2>
-                    <p class="text-xs text-slate-400">Enter your credentials to access your secure learning space</p>
+                    <h2 class="font-display text-3xl font-bold text-white">Student Corner</h2>
+                    <p class="text-xs text-slate-400">Enter your full name and email to enter the Academy</p>
                 </div>
 
                 <form onsubmit="app.handleLogin(event)" class="space-y-4">
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">Student Full Name</label>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Student Full Name</label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400"><i class="fa-solid fa-user text-xs"></i></span>
-                            <input type="text" id="input-name" required placeholder="e.g., Maheen Adil" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3.5 pl-10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-amber transition">
+                            <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400"><i class="fa-solid fa-user text-xs"></i></span>
+                            <input type="text" id="input-name" required placeholder="e.g., Maheen Adil" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3.5 pl-11 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-amber transition">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">Student Email Address</label>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Student Email Address</label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400"><i class="fa-solid fa-envelope text-xs"></i></span>
-                            <input type="email" id="input-email" required placeholder="student@nextgen.edu" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3.5 pl-10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-amber transition">
+                            <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400"><i class="fa-solid fa-envelope text-xs"></i></span>
+                            <input type="email" id="input-email" required placeholder="student@nextgen.edu" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3.5 pl-11 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-amber transition">
                         </div>
                     </div>
                     <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-blue via-blue-700 to-brand-amber text-white font-bold text-sm tracking-wide shadow-xl hover:opacity-95 transition transform active:scale-95 flex items-center justify-center space-x-2">
-                        <span>Enter Dashboard</span>
+                        <span>Enter Learning Hub</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
                 </form>
@@ -175,45 +202,45 @@
             </div>
         </section>
 
-        <!-- DASHBOARD (4 SECTIONS PAGE) -->
+        <!-- ================= PAGE 3: DASHBOARD (4 SECTIONS PAGE) ================= -->
         <section id="view-dashboard" class="hidden space-y-8 py-6">
-            <div class="glass-panel p-8 rounded-3xl border-brand-amber/30 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden glow-amber">
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl border-brand-amber/30 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden glow-amber">
                 <div class="absolute right-0 top-0 w-64 h-64 bg-brand-amber/15 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="space-y-2">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-amber/20 border border-brand-amber/40 text-brand-amber text-xs font-bold">
+                <div class="space-y-3">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-brand-amber/20 border border-brand-amber/40 text-brand-amber text-xs font-bold">
                         <i class="fa-solid fa-fire"></i>
                         <span>Welcome Back, <span id="dash-name">Student</span></span>
                     </div>
-                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Choose Your Subject Section</h2>
-                    <p class="text-sm text-slate-400 max-w-xl">Explore our 4 core sections below. Each section features 10 comprehensive topics, interactive visual canvas animations, voice notes, and quizzes.</p>
+                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Choose Your Subject Section</h2>
+                    <p class="text-sm text-slate-300 max-w-xl leading-relaxed">Explore our 4 core sections below. Each section features 10 comprehensive topics, interactive visual canvas animations, voice notes, and quizzes.</p>
                 </div>
-                <button onclick="app.navigate('progress')" class="px-6 py-3.5 rounded-2xl bg-slate-900/90 border border-brand-amber/40 hover:border-brand-amber text-xs font-bold text-white flex items-center space-x-3 transition shadow-lg">
-                    <i class="fa-solid fa-trophy text-brand-amber text-base"></i>
+                <button onclick="app.navigate('progress')" class="px-6 py-4 rounded-2xl bg-slate-900/90 border border-brand-amber/40 hover:border-brand-amber text-xs font-bold text-white flex items-center space-x-4 transition shadow-2xl group">
+                    <i class="fa-solid fa-trophy text-brand-amber text-xl group-hover:scale-110 transition"></i>
                     <div class="text-left">
-                        <div>Progress & XP Hub</div>
-                        <div class="text-brand-amber"><span id="dash-xp">50</span> XP Earned</div>
+                        <div class="text-[10px] text-slate-400 uppercase">Progress Hub</div>
+                        <div class="text-brand-amber font-display text-base font-bold"><span id="dash-xp">50</span> XP Earned</div>
                     </div>
                 </button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="subject-cards-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="subject-cards-container">
                 <!-- Injected via JS -->
             </div>
         </section>
 
-        <!-- SUBJECT TOPICS & VISUAL EXPLORER -->
+        <!-- ================= PAGE 4: SUBJECT TOPICS & VISUAL EXPLORER ================= -->
         <section id="view-subject" class="hidden space-y-6 py-6">
             <button onclick="app.navigate('dashboard')" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-800/80 text-slate-300 hover:bg-brand-amber/20 hover:text-brand-amber transition text-xs font-bold border border-slate-700">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back to Subject Sections</span>
             </button>
             
-            <div class="glass-panel p-6 rounded-3xl border-brand-amber/30 flex items-center justify-between flex-wrap gap-4">
-                <div class="flex items-center space-x-4">
-                    <div id="sub-icon-box" class="w-16 h-16 rounded-2xl bg-brand-amber/20 border border-brand-amber/40 flex items-center justify-center text-3xl text-brand-amber"></div>
+            <div class="glass-panel p-8 rounded-3xl border-brand-amber/30 flex items-center justify-between flex-wrap gap-6 glow-amber">
+                <div class="flex items-center space-x-5">
+                    <div id="sub-icon-box" class="w-20 h-20 rounded-2xl bg-brand-amber/20 border border-brand-amber/40 flex items-center justify-center text-4xl text-brand-amber shadow-lg"></div>
                     <div>
-                        <h2 id="sub-title" class="font-display text-3xl font-bold text-white">Subject Title</h2>
-                        <p id="sub-desc" class="text-sm text-slate-400">10 Interactive Topics with Visual Diagrams & Quizzes</p>
+                        <h2 id="sub-title" class="font-display text-3xl sm:text-4xl font-bold text-white">Subject Title</h2>
+                        <p id="sub-desc" class="text-sm text-slate-300 mt-1">10 Interactive Topics with Visual Diagrams & Quizzes</p>
                     </div>
                 </div>
             </div>
@@ -223,7 +250,7 @@
             </div>
         </section>
 
-        <!-- LESSON & VISUAL SIMULATION PAGE -->
+        <!-- ================= PAGE 5: LESSON & VISUAL SIMULATION PAGE ================= -->
         <section id="view-lesson" class="hidden space-y-6 py-6">
             <button onclick="app.backToSubject()" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-800/80 text-slate-300 hover:bg-brand-amber/20 hover:text-brand-amber transition text-xs font-bold border border-slate-700">
                 <i class="fa-solid fa-arrow-left"></i>
@@ -232,24 +259,24 @@
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div class="lg:col-span-8 space-y-6">
-                    <div class="glass-panel p-6 rounded-3xl border-brand-amber/30 space-y-5">
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl border-brand-amber/30 space-y-6 glow-amber">
                         <div class="flex items-center justify-between">
-                            <span id="lesson-tag" class="px-3 py-1 rounded-full bg-brand-amber/20 text-brand-amber text-xs font-bold uppercase tracking-wider">Topic</span>
-                            <span class="text-xs text-slate-400"><i class="fa-solid fa-bolt text-brand-amber animate-pulse"></i> Live Animated Diagram</span>
+                            <span id="lesson-tag" class="px-3.5 py-1 rounded-full bg-brand-amber/20 text-brand-amber text-xs font-bold uppercase tracking-wider">Topic</span>
+                            <span class="text-xs text-slate-400 flex items-center space-x-1.5"><i class="fa-solid fa-bolt text-brand-amber animate-pulse"></i><span>Live Animated Diagram</span></span>
                         </div>
                         <h2 id="lesson-title" class="font-display text-3xl font-bold text-white">Topic Title</h2>
                         
-                        <div class="relative w-full h-80 bg-slate-950 rounded-2xl overflow-hidden border border-brand-amber/30 flex items-center justify-center shadow-inner">
+                        <div class="relative w-full h-80 sm:h-96 bg-slate-950 rounded-2xl overflow-hidden border border-brand-amber/30 flex items-center justify-center shadow-inner">
                             <canvas id="topic-canvas" class="w-full h-full"></canvas>
-                            <div class="absolute bottom-3 right-3 bg-slate-900/90 backdrop-blur px-3 py-1 rounded-lg border border-brand-amber/40 text-[11px] text-slate-300 flex items-center space-x-2">
-                                <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+                            <div class="absolute bottom-3 right-3 bg-slate-900/90 backdrop-blur px-3.5 py-1.5 rounded-lg border border-brand-amber/40 text-[11px] text-slate-300 flex items-center space-x-2 shadow-lg">
+                                <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-ping"></span>
                                 <span>Canvas Animation Active</span>
                             </div>
                         </div>
 
-                        <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 flex items-center justify-between flex-wrap gap-4">
-                            <div class="flex items-center space-x-3">
-                                <button onclick="app.toggleVoiceNote()" id="play-audio-btn" class="w-12 h-12 rounded-xl bg-brand-amber text-brand-dark flex items-center justify-center text-lg font-bold shadow-lg hover:scale-105 transition">
+                        <div class="bg-slate-900/90 p-4 sm:p-5 rounded-2xl border border-slate-800 flex items-center justify-between flex-wrap gap-4">
+                            <div class="flex items-center space-x-4">
+                                <button onclick="app.toggleVoiceNote()" id="play-audio-btn" class="w-14 h-14 rounded-2xl bg-brand-amber text-brand-dark flex items-center justify-center text-xl font-bold shadow-xl hover:scale-105 transition">
                                     <i class="fa-solid fa-play" id="audio-icon"></i>
                                 </button>
                                 <div>
@@ -257,13 +284,13 @@
                                         <span>Audio Voice Note Explanation</span>
                                         <span class="px-2 py-0.5 rounded bg-amber-950 text-brand-amber text-[10px]">Zero-Cost TTS</span>
                                     </div>
-                                    <div class="text-[11px] text-slate-400" id="audio-status-text">Listen to 1-minute breakdown</div>
+                                    <div class="text-[11px] text-slate-400 mt-0.5" id="audio-status-text">Listen to 1-minute breakdown</div>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-2">
-                                <button onclick="app.setAudioSpeed(1)" id="spd-1" class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700">1.0x</button>
-                                <button onclick="app.setAudioSpeed(1.25)" id="spd-125" class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-slate-400 border border-slate-700">1.25x</button>
-                                <button onclick="app.setAudioSpeed(1.5)" id="spd-15" class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-slate-400 border border-slate-700">1.5x</button>
+                                <button onclick="app.setAudioSpeed(1)" id="spd-1" class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700">1.0x</button>
+                                <button onclick="app.setAudioSpeed(1.25)" id="spd-125" class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-bold text-slate-400 border border-slate-700">1.25x</button>
+                                <button onclick="app.setAudioSpeed(1.5)" id="spd-15" class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-bold text-slate-400 border border-slate-700">1.5x</button>
                             </div>
                         </div>
 
@@ -272,7 +299,7 @@
                                 <i class="fa-solid fa-graduation-cap text-brand-amber"></i>
                                 <span>Detailed Gen-Z Explanation</span>
                             </h3>
-                            <div id="lesson-explanation" class="text-slate-300 text-sm leading-relaxed space-y-3 bg-slate-900/50 p-5 rounded-2xl border border-slate-800">
+                            <div id="lesson-explanation" class="text-slate-300 text-sm sm:text-base leading-relaxed space-y-3 bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
                                 <!-- Injected -->
                             </div>
                         </div>
@@ -280,15 +307,15 @@
                 </div>
 
                 <div class="lg:col-span-4 space-y-6">
-                    <div class="glass-panel p-6 rounded-3xl border-brand-amber/30 space-y-6 sticky top-24 text-center glow-amber">
-                        <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-2xl shadow-lg">
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl border-brand-amber/30 space-y-6 sticky top-24 text-center glow-amber">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-2xl shadow-xl">
                             <i class="fa-solid fa-brain"></i>
                         </div>
                         <div>
                             <h3 class="font-display text-xl font-bold text-white">Ready for the Quiz Arena?</h3>
-                            <p class="text-xs text-slate-400 mt-1">Test your mastery of this topic, answer correctly, and earn +25 XP!</p>
+                            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Test your mastery of this topic, answer correctly, and earn +25 XP!</p>
                         </div>
-                        <button onclick="app.openQuizPage()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-amber to-amber-600 text-brand-dark font-display font-extrabold text-sm tracking-wide shadow-xl hover:opacity-95 transition flex items-center justify-center space-x-2">
+                        <button onclick="app.openQuizPage()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-amber to-amber-600 text-brand-dark font-display font-extrabold text-sm tracking-wide shadow-2xl hover:opacity-95 transition flex items-center justify-center space-x-2">
                             <span>Open Quiz Arena Page</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
@@ -297,23 +324,23 @@
             </div>
         </section>
 
-        <!-- DEDICATED QUIZ ARENA PAGE -->
+        <!-- ================= PAGE 6: DEDICATED QUIZ ARENA PAGE ================= -->
         <section id="view-quiz" class="hidden max-w-2xl mx-auto space-y-6 py-8">
             <button onclick="app.backToLesson()" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-800/80 text-slate-300 hover:bg-brand-amber/20 hover:text-brand-amber transition text-xs font-bold border border-slate-700">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back to Lesson & Simulation</span>
             </button>
 
-            <div class="glass-panel p-8 rounded-3xl border-brand-amber/40 space-y-6 glow-amber relative overflow-hidden">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-12 h-12 rounded-xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-brain"></i></div>
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl border-brand-amber/40 space-y-6 glow-amber relative overflow-hidden">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-5">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-2xl font-bold shadow-lg"><i class="fa-solid fa-brain"></i></div>
                         <div>
                             <h2 class="font-display text-2xl font-bold text-white">Dedicated Quiz Arena</h2>
                             <p class="text-xs text-slate-400" id="quiz-topic-subtitle">Topic Quiz</p>
                         </div>
                     </div>
-                    <span class="px-3 py-1 rounded-full bg-brand-amber/20 text-brand-amber text-xs font-bold">+25 XP Reward</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-amber/20 text-brand-amber text-xs font-bold">+25 XP Reward</span>
                 </div>
 
                 <div id="quiz-arena-content" class="space-y-6">
@@ -322,49 +349,49 @@
             </div>
         </section>
 
-        <!-- PROGRESS & XP DASHBOARD PAGE -->
+        <!-- ================= PAGE 7: PROGRESS & XP DASHBOARD PAGE ================= -->
         <section id="view-progress" class="hidden max-w-4xl mx-auto space-y-6 py-8">
             <button onclick="app.navigate('dashboard')" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-800/80 text-slate-300 hover:bg-brand-amber/20 hover:text-brand-amber transition text-xs font-bold border border-slate-700">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back to Subject Sections</span>
             </button>
 
-            <div class="glass-panel p-8 rounded-3xl border-brand-amber/30 space-y-8 glow-amber">
-                <div class="flex items-center justify-between flex-wrap gap-4 border-b border-slate-800 pb-6">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-16 h-16 rounded-2xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-3xl font-bold"><i class="fa-solid fa-trophy"></i></div>
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl border-brand-amber/30 space-y-8 glow-amber">
+                <div class="flex items-center justify-between flex-wrap gap-6 border-b border-slate-800 pb-6">
+                    <div class="flex items-center space-x-5">
+                        <div class="w-16 h-16 rounded-2xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-3xl font-bold shadow-xl"><i class="fa-solid fa-trophy"></i></div>
                         <div>
                             <h2 class="font-display text-3xl font-bold text-white">Student Progress Hub</h2>
-                            <p class="text-xs text-slate-400">Track your completed modules, achievements, and total XP score</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Track your completed modules, achievements, and total XP score</p>
                         </div>
                     </div>
-                    <div class="bg-slate-900/90 px-6 py-4 rounded-2xl border border-brand-amber/40 text-center">
-                        <div class="text-xs text-slate-400 uppercase font-semibold">Total XP Earned</div>
+                    <div class="bg-slate-900/90 px-6 py-4 rounded-2xl border border-brand-amber/40 text-center shadow-lg">
+                        <div class="text-[10px] text-slate-400 uppercase font-semibold">Total XP Earned</div>
                         <div class="font-display text-3xl font-extrabold text-brand-amber"><span id="progress-xp">50</span> XP</div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="glass-panel p-5 rounded-2xl border-slate-800 text-center">
-                        <i class="fa-solid fa-book-open text-brand-amber text-2xl mb-2"></i>
-                        <div class="text-2xl font-extrabold text-white" id="stat-completed">0</div>
+                    <div class="glass-panel p-6 rounded-2xl border-slate-800 text-center">
+                        <i class="fa-solid fa-book-open text-brand-amber text-3xl mb-3"></i>
+                        <div class="text-3xl font-extrabold text-white" id="stat-completed">0</div>
                         <div class="text-xs text-slate-400 mt-1">Completed Topics</div>
                     </div>
-                    <div class="glass-panel p-5 rounded-2xl border-slate-800 text-center">
-                        <i class="fa-solid fa-layer-group text-brand-amber text-2xl mb-2"></i>
-                        <div class="text-2xl font-extrabold text-white">40</div>
+                    <div class="glass-panel p-6 rounded-2xl border-slate-800 text-center">
+                        <i class="fa-solid fa-layer-group text-brand-amber text-3xl mb-3"></i>
+                        <div class="text-3xl font-extrabold text-white">40</div>
                         <div class="text-xs text-slate-400 mt-1">Total Available Topics</div>
                     </div>
-                    <div class="glass-panel p-5 rounded-2xl border-slate-800 text-center">
-                        <i class="fa-solid fa-medal text-brand-amber text-2xl mb-2"></i>
-                        <div class="text-2xl font-extrabold text-white" id="stat-rank">Explorer</div>
+                    <div class="glass-panel p-6 rounded-2xl border-slate-800 text-center">
+                        <i class="fa-solid fa-medal text-brand-amber text-3xl mb-3"></i>
+                        <div class="text-3xl font-extrabold text-white" id="stat-rank">Explorer</div>
                         <div class="text-xs text-slate-400 mt-1">Student Rank</div>
                     </div>
                 </div>
 
-                <div class="space-y-3">
+                <div class="space-y-4">
                     <h3 class="font-display text-xl font-bold text-white">Completed Modules Log</h3>
-                    <div id="completed-topics-list" class="space-y-2">
+                    <div id="completed-topics-list" class="space-y-3">
                         <!-- Injected -->
                     </div>
                 </div>
@@ -375,7 +402,7 @@
 
     <!-- Footer -->
     <footer class="glass-panel border-t border-brand-amber/30 py-6 text-center text-xs text-slate-400 mt-12">
-        <p>NEXT GEN ACADEMY • 40 Free Interactive Modules • <strong class="text-brand-amber">MADE BY MAHEEN ADIL</strong></p>
+        <p>THE NEXT GEN ACADEMY • 40 Interactive Modules • <strong class="text-brand-amber">MADE BY MAHEEN ADIL</strong></p>
     </footer>
 
     <!-- Default Statcounter code for The next Gen Academy -->
@@ -541,17 +568,17 @@
 
                 Object.values(SUBJECTS).forEach(sub => {
                     container.innerHTML += `
-                        <div onclick="app.openSubject('${sub.id}')" class="glass-panel p-8 rounded-3xl border-brand-amber/30 hover:border-brand-amber transition cursor-pointer group flex flex-col justify-between space-y-6">
+                        <div onclick="app.openSubject('${sub.id}')" class="glass-panel p-8 sm:p-10 rounded-3xl border-brand-amber/30 hover:border-brand-amber transition cursor-pointer group flex flex-col justify-between space-y-6 glow-amber">
                             <div>
-                                <div class="w-16 h-16 rounded-2xl bg-brand-amber/20 border border-brand-amber/40 flex items-center justify-center text-3xl text-brand-amber group-hover:scale-110 transition mb-4">
+                                <div class="w-20 h-20 rounded-2xl bg-brand-amber/20 border border-brand-amber/40 flex items-center justify-center text-4xl text-brand-amber group-hover:scale-110 transition mb-6 shadow-xl">
                                     <i class="fa-solid ${sub.icon}"></i>
                                 </div>
-                                <h3 class="font-display text-2xl font-bold text-white group-hover:text-brand-amber transition">${sub.title}</h3>
-                                <p class="text-xs text-slate-400 mt-2 leading-relaxed">${sub.desc}</p>
+                                <h3 class="font-display text-3xl font-bold text-white group-hover:text-brand-amber transition">${sub.title}</h3>
+                                <p class="text-sm text-slate-300 mt-2.5 leading-relaxed">${sub.desc}</p>
                             </div>
-                            <div class="flex items-center justify-between pt-4 border-t border-slate-800 text-xs font-semibold text-brand-amber">
+                            <div class="flex items-center justify-between pt-5 border-t border-slate-800 text-xs font-semibold text-brand-amber">
                                 <span>10 Topics & Live Animations</span>
-                                <span class="flex items-center space-x-1 group-hover:translate-x-1 transition"><span>Explore Section</span> <i class="fa-solid fa-arrow-right"></i></span>
+                                <span class="flex items-center space-x-1.5 group-hover:translate-x-1.5 transition"><span>Explore Section</span> <i class="fa-solid fa-arrow-right"></i></span>
                             </div>
                         </div>
                     `;
@@ -575,7 +602,7 @@
                         <div onclick="app.openLesson('${t.id}')" class="glass-panel p-5 rounded-2xl border-brand-amber/30 hover:border-brand-amber transition cursor-pointer flex flex-col justify-between space-y-3 group">
                             <div>
                                 <div class="flex items-center justify-between mb-2">
-                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-950 text-brand-amber uppercase">Module ${idx + 1}</span>
+                                    <span class="text-[10px] font-bold px-2.5 py-0.5 rounded bg-amber-950 text-brand-amber uppercase">Module ${idx + 1}</span>
                                     ${isCompleted ? '<span class="text-xs text-green-400"><i class="fa-solid fa-circle-check"></i></span>' : '<span class="text-xs text-slate-500"><i class="fa-regular fa-circle"></i></span>'}
                                 </div>
                                 <h4 class="font-display text-sm font-bold text-white group-hover:text-brand-amber transition line-clamp-2">${t.title}</h4>
@@ -619,7 +646,7 @@
                 const canvas = document.getElementById('topic-canvas');
                 const ctx = canvas.getContext('2d');
                 canvas.width = canvas.parentElement.clientWidth;
-                canvas.height = 320;
+                canvas.height = 360;
 
                 let frame = 0;
                 this.canvasInterval = setInterval(() => {
@@ -650,24 +677,24 @@
                         let cx = canvas.width / 2, cy = canvas.height / 2;
                         ctx.strokeStyle = 'rgba(230, 138, 30, 0.5)';
                         ctx.lineWidth = 2;
-                        ctx.beginPath(); ctx.arc(cx, cy, 70, 0, Math.PI * 2); ctx.stroke();
-                        ctx.beginPath(); ctx.arc(cx, cy, 110, 0, Math.PI * 2); ctx.stroke();
+                        ctx.beginPath(); ctx.arc(cx, cy, 80, 0, Math.PI * 2); ctx.stroke();
+                        ctx.beginPath(); ctx.arc(cx, cy, 130, 0, Math.PI * 2); ctx.stroke();
 
                         ctx.fillStyle = '#E68A1E';
-                        ctx.beginPath(); ctx.arc(cx, cy, 18, 0, Math.PI * 2); ctx.fill();
+                        ctx.beginPath(); ctx.arc(cx, cy, 20, 0, Math.PI * 2); ctx.fill();
 
                         let angle = frame * 0.04;
-                        let ex1 = cx + Math.cos(angle) * 70, ey1 = cy + Math.sin(angle) * 70;
-                        let ex2 = cx + Math.cos(-angle * 1.5) * 110, ey2 = cy + Math.sin(-angle * 1.5) * 110;
+                        let ex1 = cx + Math.cos(angle) * 80, ey1 = cy + Math.sin(angle) * 80;
+                        let ex2 = cx + Math.cos(-angle * 1.5) * 130, ey2 = cy + Math.sin(-angle * 1.5) * 130;
                         ctx.fillStyle = '#38BDF8';
-                        ctx.beginPath(); ctx.arc(ex1, ey1, 8, 0, Math.PI * 2); ctx.fill();
-                        ctx.beginPath(); ctx.arc(ex2, ey2, 8, 0, Math.PI * 2); ctx.fill();
+                        ctx.beginPath(); ctx.arc(ex1, ey1, 9, 0, Math.PI * 2); ctx.fill();
+                        ctx.beginPath(); ctx.arc(ex2, ey2, 9, 0, Math.PI * 2); ctx.fill();
                     } else if (this.currentSubject.id === 'biology') {
                         let cx = canvas.width / 2;
-                        for (let i = 0; i < 12; i++) {
-                            let y = i * 25 + 20;
-                            let x1 = cx + Math.sin(frame * 0.05 + i * 0.4) * 80;
-                            let x2 = cx - Math.sin(frame * 0.05 + i * 0.4) * 80;
+                        for (let i = 0; i < 14; i++) {
+                            let y = i * 25 + 15;
+                            let x1 = cx + Math.sin(frame * 0.05 + i * 0.4) * 90;
+                            let x2 = cx - Math.sin(frame * 0.05 + i * 0.4) * 90;
                             ctx.strokeStyle = 'rgba(230, 138, 30, 0.6)';
                             ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.stroke();
                             ctx.fillStyle = '#38BDF8';
@@ -677,7 +704,7 @@
                         }
                     } else {
                         let cx = canvas.width / 2, cy = 60;
-                        let len = 140;
+                        let len = 160;
                         let angle = Math.sin(frame * 0.05) * 0.8;
                         let px = cx + Math.sin(angle) * len;
                         let py = cy + Math.cos(angle) * len;
@@ -686,7 +713,7 @@
                         ctx.lineWidth = 2;
                         ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(px, py); ctx.stroke();
                         ctx.fillStyle = '#E68A1E';
-                        ctx.beginPath(); ctx.arc(px, py, 16, 0, Math.PI * 2); ctx.fill();
+                        ctx.beginPath(); ctx.arc(px, py, 18, 0, Math.PI * 2); ctx.fill();
                     }
                 }, 30);
             },
@@ -699,9 +726,9 @@
                     <div class="space-y-4">
                         <p class="text-xs text-slate-300 font-semibold">Test your mastery of ${this.currentTopic.title}.</p>
                         <p class="text-base font-bold text-white">What is the primary core concept demonstrated in this module?</p>
-                        <div class="space-y-3 pt-2">
-                            <button onclick="app.checkQuiz(true)" class="w-full text-left p-4 rounded-xl bg-slate-900 hover:bg-amber-950/50 border border-slate-800 hover:border-brand-amber text-sm text-slate-200 transition">A) ${this.currentTopic.summary}</button>
-                            <button onclick="app.checkQuiz(false)" class="w-full text-left p-4 rounded-xl bg-slate-900 hover:bg-amber-950/50 border border-slate-800 hover:border-brand-amber text-sm text-slate-200 transition">B) Random data noise with no structural logic</button>
+                        <div class="space-y-3.5 pt-2">
+                            <button onclick="app.checkQuiz(true)" class="w-full text-left p-4.5 rounded-xl bg-slate-900 hover:bg-amber-950/50 border border-slate-800 hover:border-brand-amber text-sm text-slate-200 transition">A) ${this.currentTopic.summary}</button>
+                            <button onclick="app.checkQuiz(false)" class="w-full text-left p-4.5 rounded-xl bg-slate-900 hover:bg-amber-950/50 border border-slate-800 hover:border-brand-amber text-sm text-slate-200 transition">B) Random data noise with no structural logic</button>
                         </div>
                     </div>
                 `;
@@ -717,20 +744,20 @@
                         localStorage.setItem('nga_user', JSON.stringify(this.user));
                     }
                     container.innerHTML = `
-                        <div class="p-6 rounded-2xl bg-green-950/40 border border-green-500/40 text-center space-y-3">
-                            <i class="fa-solid fa-circle-check text-4xl text-green-400"></i>
-                            <h3 class="font-display font-bold text-white text-xl">Correct! +25 XP Earned</h3>
-                            <p class="text-xs text-slate-300">Fantastic job mastering this topic! Your progress has been saved.</p>
-                            <div class="flex items-center justify-center space-x-3 pt-2">
-                                <button onclick="app.backToLesson()" class="px-5 py-2.5 rounded-xl bg-slate-800 text-white font-bold text-xs">Back to Animation</button>
-                                <button onclick="app.openQuizPage()" class="px-5 py-2.5 rounded-xl bg-green-600 text-white font-bold text-xs">Retake Quiz</button>
+                        <div class="p-8 rounded-2xl bg-green-950/40 border border-green-500/40 text-center space-y-4">
+                            <i class="fa-solid fa-circle-check text-5xl text-green-400"></i>
+                            <h3 class="font-display font-bold text-white text-2xl">Correct! +25 XP Earned</h3>
+                            <p class="text-xs sm:text-sm text-slate-300">Fantastic job mastering this topic! Your progress has been saved.</p>
+                            <div class="flex items-center justify-center space-x-4 pt-2">
+                                <button onclick="app.backToLesson()" class="px-6 py-3 rounded-xl bg-slate-800 text-white font-bold text-xs">Back to Animation</button>
+                                <button onclick="app.openQuizPage()" class="px-6 py-3 rounded-xl bg-green-600 text-white font-bold text-xs">Retake Quiz</button>
                             </div>
                         </div>
                     `;
-                    confetti({ particleCount: 70, spread: 70, origin: { y: 0.6 } });
+                    confetti({ particleCount: 80, spread: 80, origin: { y: 0.6 } });
                 } else {
                     container.innerHTML += `
-                        <div class="p-4 rounded-xl bg-red-950/40 border border-red-500/40 text-center text-xs text-red-300 mt-3">
+                        <div class="p-4 rounded-xl bg-red-950/40 border border-red-500/40 text-center text-xs text-red-300 mt-4">
                             <i class="fa-solid fa-circle-xmark"></i> Incorrect. Review the explanation and try again!
                         </div>
                     `;
@@ -756,8 +783,8 @@
                             if (match) foundTitle = `${sub.title} — ${match.title}`;
                         });
                         list.innerHTML += `
-                            <div class="glass-panel p-3.5 rounded-xl border-slate-800 flex items-center justify-between text-xs">
-                                <span class="font-bold text-white"><i class="fa-solid fa-circle-check text-green-400 mr-2"></i> ${foundTitle}</span>
+                            <div class="glass-panel p-4 rounded-xl border-slate-800 flex items-center justify-between text-xs sm:text-sm">
+                                <span class="font-bold text-white"><i class="fa-solid fa-circle-check text-green-400 mr-2.5"></i> ${foundTitle}</span>
                                 <span class="text-brand-amber font-bold">+25 XP</span>
                             </div>
                         `;
@@ -809,11 +836,11 @@
             setAudioSpeed(spd) {
                 this.audioSpeed = spd;
                 ['spd-1', 'spd-125', 'spd-15'].forEach(id => {
-                    document.getElementById(id).className = 'px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-slate-400 border border-slate-700';
+                    document.getElementById(id).className = 'px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-bold text-slate-400 border border-slate-700';
                 });
-                if (spd === 1) document.getElementById('spd-1').className = 'px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700';
-                if (spd === 1.25) document.getElementById('spd-125').className = 'px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700';
-                if (spd === 1.5) document.getElementById('spd-15').className = 'px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700';
+                if (spd === 1) document.getElementById('spd-1').className = 'px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700';
+                if (spd === 1.25) document.getElementById('spd-125').className = 'px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700';
+                if (spd === 1.5) document.getElementById('spd-15').className = 'px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700';
                 if (this.isSpeaking) this.startSpeech();
             }
         };
@@ -821,4 +848,4 @@
         window.onload = () => app.init();
     </script>
 </body>
-</html
+</html>
