@@ -234,4 +234,591 @@
                 <div class="lg:col-span-8 space-y-6">
                     <div class="glass-panel p-6 rounded-3xl border-brand-amber/30 space-y-5">
                         <div class="flex items-center justify-between">
-                            <span id="lesson
+                            <span id="lesson-tag" class="px-3 py-1 rounded-full bg-brand-amber/20 text-brand-amber text-xs font-bold uppercase tracking-wider">Topic</span>
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-bolt text-brand-amber animate-pulse"></i> Live Animated Diagram</span>
+                        </div>
+                        <h2 id="lesson-title" class="font-display text-3xl font-bold text-white">Topic Title</h2>
+                        
+                        <div class="relative w-full h-80 bg-slate-950 rounded-2xl overflow-hidden border border-brand-amber/30 flex items-center justify-center shadow-inner">
+                            <canvas id="topic-canvas" class="w-full h-full"></canvas>
+                            <div class="absolute bottom-3 right-3 bg-slate-900/90 backdrop-blur px-3 py-1 rounded-lg border border-brand-amber/40 text-[11px] text-slate-300 flex items-center space-x-2">
+                                <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+                                <span>Canvas Animation Active</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 flex items-center justify-between flex-wrap gap-4">
+                            <div class="flex items-center space-x-3">
+                                <button onclick="app.toggleVoiceNote()" id="play-audio-btn" class="w-12 h-12 rounded-xl bg-brand-amber text-brand-dark flex items-center justify-center text-lg font-bold shadow-lg hover:scale-105 transition">
+                                    <i class="fa-solid fa-play" id="audio-icon"></i>
+                                </button>
+                                <div>
+                                    <div class="text-xs font-bold text-white flex items-center space-x-2">
+                                        <span>Audio Voice Note Explanation</span>
+                                        <span class="px-2 py-0.5 rounded bg-amber-950 text-brand-amber text-[10px]">Zero-Cost TTS</span>
+                                    </div>
+                                    <div class="text-[11px] text-slate-400" id="audio-status-text">Listen to 1-minute breakdown</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="app.setAudioSpeed(1)" id="spd-1" class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700">1.0x</button>
+                                <button onclick="app.setAudioSpeed(1.25)" id="spd-125" class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-slate-400 border border-slate-700">1.25x</button>
+                                <button onclick="app.setAudioSpeed(1.5)" id="spd-15" class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-slate-400 border border-slate-700">1.5x</button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 pt-2">
+                            <h3 class="font-display text-xl font-bold text-white flex items-center space-x-2">
+                                <i class="fa-solid fa-graduation-cap text-brand-amber"></i>
+                                <span>Detailed Gen-Z Explanation</span>
+                            </h3>
+                            <div id="lesson-explanation" class="text-slate-300 text-sm leading-relaxed space-y-3 bg-slate-900/50 p-5 rounded-2xl border border-slate-800">
+                                <!-- Injected -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="glass-panel p-6 rounded-3xl border-brand-amber/30 space-y-6 sticky top-24 text-center glow-amber">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-2xl shadow-lg">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-white">Ready for the Quiz Arena?</h3>
+                            <p class="text-xs text-slate-400 mt-1">Test your mastery of this topic, answer correctly, and earn +25 XP!</p>
+                        </div>
+                        <button onclick="app.openQuizPage()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-amber to-amber-600 text-brand-dark font-display font-extrabold text-sm tracking-wide shadow-xl hover:opacity-95 transition flex items-center justify-center space-x-2">
+                            <span>Open Quiz Arena Page</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEDICATED QUIZ ARENA PAGE -->
+        <section id="view-quiz" class="hidden max-w-2xl mx-auto space-y-6 py-8">
+            <button onclick="app.backToLesson()" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-800/80 text-slate-300 hover:bg-brand-amber/20 hover:text-brand-amber transition text-xs font-bold border border-slate-700">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Lesson & Simulation</span>
+            </button>
+
+            <div class="glass-panel p-8 rounded-3xl border-brand-amber/40 space-y-6 glow-amber relative overflow-hidden">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-brain"></i></div>
+                        <div>
+                            <h2 class="font-display text-2xl font-bold text-white">Dedicated Quiz Arena</h2>
+                            <p class="text-xs text-slate-400" id="quiz-topic-subtitle">Topic Quiz</p>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1 rounded-full bg-brand-amber/20 text-brand-amber text-xs font-bold">+25 XP Reward</span>
+                </div>
+
+                <div id="quiz-arena-content" class="space-y-6">
+                    <!-- Injected Quiz Qs -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRESS & XP DASHBOARD PAGE -->
+        <section id="view-progress" class="hidden max-w-4xl mx-auto space-y-6 py-8">
+            <button onclick="app.navigate('dashboard')" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-800/80 text-slate-300 hover:bg-brand-amber/20 hover:text-brand-amber transition text-xs font-bold border border-slate-700">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Subject Sections</span>
+            </button>
+
+            <div class="glass-panel p-8 rounded-3xl border-brand-amber/30 space-y-8 glow-amber">
+                <div class="flex items-center justify-between flex-wrap gap-4 border-b border-slate-800 pb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 rounded-2xl bg-brand-amber/20 text-brand-amber flex items-center justify-center text-3xl font-bold"><i class="fa-solid fa-trophy"></i></div>
+                        <div>
+                            <h2 class="font-display text-3xl font-bold text-white">Student Progress Hub</h2>
+                            <p class="text-xs text-slate-400">Track your completed modules, achievements, and total XP score</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/90 px-6 py-4 rounded-2xl border border-brand-amber/40 text-center">
+                        <div class="text-xs text-slate-400 uppercase font-semibold">Total XP Earned</div>
+                        <div class="font-display text-3xl font-extrabold text-brand-amber"><span id="progress-xp">50</span> XP</div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-panel p-5 rounded-2xl border-slate-800 text-center">
+                        <i class="fa-solid fa-book-open text-brand-amber text-2xl mb-2"></i>
+                        <div class="text-2xl font-extrabold text-white" id="stat-completed">0</div>
+                        <div class="text-xs text-slate-400 mt-1">Completed Topics</div>
+                    </div>
+                    <div class="glass-panel p-5 rounded-2xl border-slate-800 text-center">
+                        <i class="fa-solid fa-layer-group text-brand-amber text-2xl mb-2"></i>
+                        <div class="text-2xl font-extrabold text-white">40</div>
+                        <div class="text-xs text-slate-400 mt-1">Total Available Topics</div>
+                    </div>
+                    <div class="glass-panel p-5 rounded-2xl border-slate-800 text-center">
+                        <i class="fa-solid fa-medal text-brand-amber text-2xl mb-2"></i>
+                        <div class="text-2xl font-extrabold text-white" id="stat-rank">Explorer</div>
+                        <div class="text-xs text-slate-400 mt-1">Student Rank</div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="font-display text-xl font-bold text-white">Completed Modules Log</h3>
+                    <div id="completed-topics-list" class="space-y-2">
+                        <!-- Injected -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-brand-amber/30 py-6 text-center text-xs text-slate-400 mt-12">
+        <p>NEXT GEN ACADEMY • 40 Free Interactive Modules • <strong class="text-brand-amber">MADE BY MAHEEN ADIL</strong></p>
+    </footer>
+
+    <!-- Default Statcounter code for The next Gen Academy -->
+    <script type="text/javascript">
+    var sc_project=13366329; 
+    var sc_invisible=1; 
+    var sc_security="91574279"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img class="statcounter"
+    src="https://c.statcounter.com/13366329/0/91574279/1/" alt="Web Analytics"
+    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
+    <!-- Complete App Logic Script -->
+    <script>
+        const SUBJECTS = {
+            computer: {
+                id: 'computer',
+                title: 'Computer Science',
+                desc: 'Algorithms, AI Neural Networks, Logic Gates & Code Architecture',
+                icon: 'fa-laptop-code',
+                topics: [
+                    { id: 'c1', title: '1. Binary & Data Representation', summary: 'Understanding 0s and 1s, bits, bytes, and how computers store text, images, and numbers.', content: 'Computers speak electricity! Everything is stored as binary digits (0 and 1). A bit is a single switch, and 8 bits make a byte. We use ASCII and Unicode to map binary numbers to characters.' },
+                    { id: 'c2', title: '2. CPU Architecture & Fetch-Execute', summary: 'How the Central Processing Unit fetches instructions, decodes them, and executes calculations.', content: 'The CPU follows a 3-step rhythm: Fetch an instruction from RAM, Decode what it means, and Execute the math using the ALU millions of times per second!' },
+                    { id: 'c3', title: '3. Algorithms & Bubble Sort', summary: 'Step-by-step logic and sorting techniques used to organize massive datasets efficiently.', content: 'An algorithm is a recipe for solving a problem. Bubble Sort compares adjacent numbers in a list and swaps them if they are out of order.' },
+                    { id: 'c4', title: '4. Logic Gates (AND, OR, NOT)', summary: 'The Boolean building blocks of all digital circuits and microprocessors.', content: 'Logic gates are electronic switches inside silicon chips. AND requires both inputs to be true, OR requires at least one, and NOT flips the signal.' },
+                    { id: 'c5', title: '5. Object-Oriented Programming (OOP)', summary: 'Classes, objects, inheritance, and encapsulation in modern software engineering.', content: 'OOP lets programmers model real-world entities. A "Car" class has attributes (color, speed) and methods (drive, brake).' },
+                    { id: 'c6', title: '6. Artificial Intelligence & Neural Nets', summary: 'Mimicking biological brains using weighted synapses and deep learning layers.', content: 'Neural networks consist of artificial neurons stacked in layers. By adjusting weights based on error feedback, AI learns to recognize faces and generate text.' },
+                    { id: 'c7', title: '7. Cybersecurity & Encryption', summary: 'Protecting data using symmetric keys, hashing, and public-private encryption.', content: 'Encryption scrambles plaintext into ciphertext using secret mathematical keys, ensuring hackers cannot steal data on public Wi-Fi.' },
+                    { id: 'c8', title: '8. Database Management Systems (SQL)', summary: 'Storing, querying, and relational linking of structured tables using SQL.', content: 'Relational SQL databases connect tables (like Users and Orders) using Foreign Keys so you can query data instantly with SELECT statements.' },
+                    { id: 'c9', title: '9. Web Development & HTML/CSS/JS', summary: 'The triad of the internet: Structure (HTML), Styling (CSS), and Interactivity (JS).', content: 'HTML builds the skeleton, CSS adds the aesthetic styling, and JavaScript brings the logic, making buttons reactive and web apps alive.' },
+                    { id: 'c10', title: '10. Cloud Computing & Distributed Systems', summary: 'Serverless architecture, AWS, and decentralized data storage across global server farms.', content: 'Cloud computing runs apps on giant remote data warehouses (AWS, Google Cloud) offering infinite scaling without buying physical servers.' }
+                ]
+            },
+            chemistry: {
+                id: 'chemistry',
+                title: 'Chemistry',
+                desc: 'Atomic structure, bonding, periodic trends, and molecular kinetics',
+                icon: 'fa-flask',
+                topics: [
+                    { id: 'ch1', title: '1. Bohr Atomic Model & Subatomic Particles', summary: 'Protons, neutrons, electrons, and quantized energy shells around the nucleus.', content: 'Atoms are 99.999% empty space! Protons and neutrons form the dense nucleus, while electrons orbit in specific energy shells.' },
+                    { id: 'ch2', title: '2. Periodic Table & Periodic Trends', summary: 'Atomic radius, electronegativity, ionization energy, and group properties.', content: 'Elements in columns share chemical personalities because they have the same number of valence electrons.' },
+                    { id: 'ch3', title: '3. Ionic vs Covalent Bonding', summary: 'Electron transfer in ionic salts and electron sharing in molecular covalent bonds.', content: 'Ionic bonds happen when one atom steals an electron (like NaCl salt). Covalent bonds happen when atoms share electrons (like H2O water).' },
+                    { id: 'ch4', title: '4. States of Matter & Phase Transitions', summary: 'Solid, liquid, gas, and plasma dynamics based on thermal kinetic energy.', content: 'Add heat to ice, molecules vibrate faster, break bonds, and melt into liquid water. Add more heat, and they vaporize into steam!' },
+                    { id: 'ch5', title: '5. Chemical Reactions & Stoichiometry', summary: 'Balancing chemical equations, moles, and conservation of mass.', content: 'Matter cannot be created or destroyed. Reactant atoms must equal product atoms, measured in moles.' },
+                    { id: 'ch6', title: '6. Acids, Bases, and pH Scale', summary: 'Hydrogen ion concentration, hydronium, neutralization, and indicators.', content: 'Acids donate proton H+ ions (sour, pH 0-6), while bases accept protons or release OH- (bitter, pH 8-14).' },
+                    { id: 'ch7', title: '7. Redox Reactions & Electrochemistry', summary: 'Reduction-Oxidation (OIL RIG), galvanic cells, and electron transfer.', content: 'Oxidation is Loss of electrons (OIL), Reduction is Gain (RIG). This electron transfer powers every battery!' },
+                    { id: 'ch8', title: '8. Reaction Kinetics & Activation Energy', summary: 'Catalysts, temperature, concentration, and collision theory rates.', content: 'For reactions to happen, molecules must collide with enough energy. Catalysts lower the energy barrier to speed things up.' },
+                    { id: 'ch9', title: '9. Organic Chemistry & Hydrocarbons', summary: 'Carbon chains, functional groups, alkanes, alkenes, and isomers.', content: 'Carbon forms 4 strong covalent bonds, creating millions of organic compounds ranging from methane to DNA.' },
+                    { id: 'ch10', title: '10. Thermodynamics & Enthalpy ($\Delta H$)', summary: 'Exothermic and endothermic heat exchanges in chemical systems.', content: 'Exothermic reactions release heat (feel hot like bonfires). Endothermic reactions absorb heat (feel cold like ice packs).' }
+                ]
+            },
+            biology: {
+                id: 'biology',
+                title: 'Biology',
+                desc: 'Cellular anatomy, genetics, DNA replication, and human physiology',
+                icon: 'fa-dna',
+                topics: [
+                    { id: 'b1', title: '1. Cell Structure & Organelles', summary: 'Eukaryotic vs prokaryotic cells, nucleus, mitochondria, ribosomes, and ER.', content: 'Mitochondria generates ATP energy, ribosomes build proteins, and the nucleus stores DNA blueprints.' },
+                    { id: 'b2', title: '2. DNA Replication & Central Dogma', summary: 'DNA transcription to mRNA and translation into functional proteins.', content: 'DNA to RNA to Protein is the central dogma. During replication, enzymes unzip the double helix and build exact copies.' },
+                    { id: 'b3', title: '3. Mitosis & Cell Division', summary: 'Prophase, metaphase, anaphase, telophase, and somatic cell duplication.', content: 'Mitosis is how your body grows and repairs skin. One parent cell neatly divides into two identical daughter cells.' },
+                    { id: 'b4', title: '4. Meiosis & Genetic Diversity', summary: 'Crossing over, homologous chromosomes, and gamete formation (sperm/egg).', content: 'Meiosis makes sex cells with half the DNA. Crossing over shuffles genetic cards, ensuring unique siblings.' },
+                    { id: 'b5', title: '5. Photosynthesis & Chloroplasts', summary: 'Light-dependent reactions, Calvin cycle, converting sunlight into glucose.', content: 'Plants capture sunlight, splitting water to release oxygen and storing solar energy inside glucose sugar.' },
+                    { id: 'b6', title: '6. Cellular Respiration & ATP', summary: 'Glycolysis, Krebs cycle, and oxidative phosphorylation in mitochondria.', content: 'Respiration burns glucose with oxygen to produce ATP, the rechargeable battery currency of cellular work.' },
+                    { id: 'b7', title: '7. Mendelian Genetics & Punnett Squares', summary: 'Dominant/recessive alleles, genotype, phenotype, and inheritance probability.', content: 'Punnett squares predict the probability of offspring traits based on parental gene combinations.' },
+                    { id: 'b8', title: '8. Human Circulatory System & Heart', summary: 'Atria, ventricles, oxygenated blood flow, arteries, and veins.', content: 'Your heart is a tireless double pump sending deoxygenated blood to lungs and fresh red blood across the body.' },
+                    { id: 'b9', title: '9. Nervous System & Action Potentials', summary: 'Neurons, synapses, neurotransmitters, and electrical nerve impulses.', content: 'An action potential is an electrical spike rushing down the axon to trigger chemical neurotransmitters.' },
+                    { id: 'b10', title: '10. Ecology & Ecosystem Energy Flow', summary: 'Trophic levels, food webs, carbon cycle, and biodiversity balance.', content: 'Energy flows from Sun to Producers to Herbivores to Carnivores, losing 90% heat at each trophic level.' }
+                ]
+            },
+            physics: {
+                id: 'physics',
+                title: 'Physics',
+                desc: 'Mechanics, electromagnetism, relativity, waves, and quantum energy',
+                icon: 'fa-atom',
+                topics: [
+                    { id: 'p1', title: '1. Newton’s Laws of Motion', summary: 'Inertia ($F=ma$), action-reaction forces in classical mechanics.', content: '1st Law: objects keep moving. 2nd Law: Force equals mass times acceleration (F=ma). 3rd Law: Action and reaction are equal and opposite.' },
+                    { id: 'p2', title: '2. Work, Energy, and Power', summary: 'Kinetic energy, potential energy, conservation laws, and wattage.', content: 'Energy cannot be created or destroyed. Kinetic energy is motion, potential energy is height, power is energy per second.' },
+                    { id: 'p3', title: '3. Momentum & Impulse Collisions', summary: 'Conservation of momentum in elastic and inelastic collisions.', content: 'Momentum is mass in motion. Airbags save lives during collisions by extending impact time to reduce force.' },
+                    { id: 'p4', title: '4. Gravitation & Orbital Mechanics', summary: 'Newton’s law of universal gravitation and satellite orbital velocity.', content: 'Satellites stay in orbit because they travel sideways so fast that as they fall towards Earth, Earth curves away beneath them!' },
+                    { id: 'p5', title: '5. Waves, Sound, and Doppler Effect', summary: 'Frequency, wavelength, resonance, and ambulance siren pitch shifts.', content: 'The Doppler effect compresses sound waves in front of a moving ambulance, making sirens sound higher pitched.' },
+                    { id: 'p6', title: '6. Electromagnetism & Faraday’s Law', summary: 'Magnetic fields, electric current induction, motors, and generators.', content: 'Moving electricity creates magnetic fields, and moving magnets create electric current, powering motors worldwide.' },
+                    { id: 'p7', title: '7. Ohm’s Law & Electric Circuits', summary: 'Voltage ($V$), Current ($I$), Resistance ($R$), and power calculations.', content: 'Ohm’s Law (V = IR) relates voltage pressure, current flow rate, and circuit resistance.' },
+                    { id: 'p8', title: '8. Optics, Reflection, and Refraction', summary: 'Snell’s law, lenses, mirrors, and total internal reflection in fiber optics.', content: 'Total internal reflection allows high-speed internet data to travel seamlessly through glass fiber optic cables.' },
+                    { id: 'p9', title: '9. Thermodynamics & Entropy', summary: 'Laws of thermodynamics, heat engines, and irreversible disorder (Entropy).', content: 'The 2nd Law states that universe disorder (entropy) always increases over time. Heat flows only from hot to cold.' },
+                    { id: 'p10', title: '10. Special Relativity & Quantum Basics', summary: 'Speed of light constant, time dilation ($E=mc^2$), and photon energy packets.', content: 'Einstein proved time slows down near light speed, linked by the famous equation E=mc squared.' }
+                ]
+            }
+        };
+
+        const app = {
+            user: null,
+            currentSubject: null,
+            currentTopic: null,
+            audioSpeed: 1,
+            isSpeaking: false,
+            canvasInterval: null,
+
+            init() {
+                const saved = localStorage.getItem('nga_user');
+                if (saved) {
+                    this.user = JSON.parse(saved);
+                    this.navigate('dashboard');
+                } else {
+                    this.navigate('home');
+                }
+            },
+
+            navigate(viewId) {
+                this.stopSpeech();
+                if (this.canvasInterval) clearInterval(this.canvasInterval);
+
+                ['home', 'login', 'dashboard', 'subject', 'lesson', 'quiz', 'progress'].forEach(v => {
+                    document.getElementById(`view-${v}`).classList.add('hidden');
+                });
+                document.getElementById(`view-${viewId}`).classList.remove('hidden');
+
+                const navMenu = document.getElementById('nav-menu');
+                if (viewId === 'home' || viewId === 'login') {
+                    navMenu.classList.add('hidden');
+                    navMenu.classList.remove('flex');
+                } else {
+                    navMenu.classList.remove('hidden');
+                    navMenu.classList.add('flex');
+                    if (this.user) {
+                        document.getElementById('nav-student-name').innerText = this.user.name;
+                        document.getElementById('nav-xp').innerText = this.user.xp;
+                    }
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                if (viewId === 'dashboard') this.renderDashboard();
+                if (viewId === 'progress') this.renderProgress();
+            },
+
+            handleLogin(e) {
+                e.preventDefault();
+                const name = document.getElementById('input-name').value.trim();
+                const email = document.getElementById('input-email').value.trim();
+                if (!name || !email) return;
+
+                this.user = { name, email, xp: 50, completedTopics: [] };
+                localStorage.setItem('nga_user', JSON.stringify(this.user));
+                this.navigate('dashboard');
+                confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 } });
+            },
+
+            logout() {
+                localStorage.removeItem('nga_user');
+                this.user = null;
+                this.navigate('home');
+            },
+
+            renderDashboard() {
+                document.getElementById('dash-name').innerText = this.user.name;
+                document.getElementById('dash-xp').innerText = this.user.xp;
+
+                const container = document.getElementById('subject-cards-container');
+                container.innerHTML = '';
+
+                Object.values(SUBJECTS).forEach(sub => {
+                    container.innerHTML += `
+                        <div onclick="app.openSubject('${sub.id}')" class="glass-panel p-8 rounded-3xl border-brand-amber/30 hover:border-brand-amber transition cursor-pointer group flex flex-col justify-between space-y-6">
+                            <div>
+                                <div class="w-16 h-16 rounded-2xl bg-brand-amber/20 border border-brand-amber/40 flex items-center justify-center text-3xl text-brand-amber group-hover:scale-110 transition mb-4">
+                                    <i class="fa-solid ${sub.icon}"></i>
+                                </div>
+                                <h3 class="font-display text-2xl font-bold text-white group-hover:text-brand-amber transition">${sub.title}</h3>
+                                <p class="text-xs text-slate-400 mt-2 leading-relaxed">${sub.desc}</p>
+                            </div>
+                            <div class="flex items-center justify-between pt-4 border-t border-slate-800 text-xs font-semibold text-brand-amber">
+                                <span>10 Topics & Live Animations</span>
+                                <span class="flex items-center space-x-1 group-hover:translate-x-1 transition"><span>Explore Section</span> <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    `;
+                });
+            },
+
+            openSubject(subId) {
+                this.currentSubject = SUBJECTS[subId];
+                this.navigate('subject');
+
+                document.getElementById('sub-icon-box').innerHTML = `<i class="fa-solid ${this.currentSubject.icon}"></i>`;
+                document.getElementById('sub-title').innerText = this.currentSubject.title;
+                document.getElementById('sub-desc').innerText = this.currentSubject.desc;
+
+                const grid = document.getElementById('topics-grid');
+                grid.innerHTML = '';
+
+                this.currentSubject.topics.forEach((t, idx) => {
+                    const isCompleted = this.user.completedTopics && this.user.completedTopics.includes(t.id);
+                    grid.innerHTML += `
+                        <div onclick="app.openLesson('${t.id}')" class="glass-panel p-5 rounded-2xl border-brand-amber/30 hover:border-brand-amber transition cursor-pointer flex flex-col justify-between space-y-3 group">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-950 text-brand-amber uppercase">Module ${idx + 1}</span>
+                                    ${isCompleted ? '<span class="text-xs text-green-400"><i class="fa-solid fa-circle-check"></i></span>' : '<span class="text-xs text-slate-500"><i class="fa-regular fa-circle"></i></span>'}
+                                </div>
+                                <h4 class="font-display text-sm font-bold text-white group-hover:text-brand-amber transition line-clamp-2">${t.title}</h4>
+                                <p class="text-xs text-slate-400 mt-1 line-clamp-2">${t.summary}</p>
+                            </div>
+                            <div class="text-[11px] font-bold text-brand-amber flex items-center space-x-1">
+                                <span>View Animation</span>
+                                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                            </div>
+                        </div>
+                    `;
+                });
+            },
+
+            backToSubject() {
+                this.navigate('subject');
+            },
+
+            backToLesson() {
+                this.navigate('lesson');
+            },
+
+            openLesson(topicId) {
+                this.stopSpeech();
+                this.currentTopic = this.currentSubject.topics.find(t => t.id === topicId);
+                this.navigate('lesson');
+
+                document.getElementById('lesson-tag').innerText = this.currentSubject.title;
+                document.getElementById('lesson-title').innerText = this.currentTopic.title;
+                document.getElementById('lesson-explanation').innerHTML = `
+                    <p><strong>Overview:</strong> ${this.currentTopic.summary}</p>
+                    <p><strong>Detailed Explanation:</strong> ${this.currentTopic.content}</p>
+                    <p class="text-xs text-brand-amber font-semibold mt-2"><i class="fa-solid fa-lightbulb"></i> Pro Tip: Listen to the voice note breakdown and test your knowledge in the Quiz Arena page to earn +25 XP!</p>
+                `;
+
+                this.renderCanvas();
+            },
+
+            renderCanvas() {
+                if (this.canvasInterval) clearInterval(this.canvasInterval);
+                const canvas = document.getElementById('topic-canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = 320;
+
+                let frame = 0;
+                this.canvasInterval = setInterval(() => {
+                    frame++;
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    ctx.strokeStyle = 'rgba(230, 138, 30, 0.08)';
+                    ctx.lineWidth = 1;
+                    for (let x = 0; x < canvas.width; x += 30) {
+                        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+                    }
+                    for (let y = 0; y < canvas.height; y += 30) {
+                        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+                    }
+
+                    if (this.currentSubject.id === 'computer') {
+                        ctx.fillStyle = '#E68A1E';
+                        ctx.font = '15px monospace';
+                        for (let i = 0; i < 15; i++) {
+                            let x = (i * 50 + frame * 3) % canvas.width;
+                            let y = (i * 35 + Math.sin(frame * 0.05 + i) * 20) % canvas.height;
+                            ctx.fillText(i % 2 === 0 ? '1010' : '0110', x, y);
+                        }
+                        ctx.fillStyle = '#38BDF8';
+                        ctx.font = 'bold 16px Space Grotesk';
+                        ctx.fillText('CPU ALU Logic Stream Active', 30, 40);
+                    } else if (this.currentSubject.id === 'chemistry') {
+                        let cx = canvas.width / 2, cy = canvas.height / 2;
+                        ctx.strokeStyle = 'rgba(230, 138, 30, 0.5)';
+                        ctx.lineWidth = 2;
+                        ctx.beginPath(); ctx.arc(cx, cy, 70, 0, Math.PI * 2); ctx.stroke();
+                        ctx.beginPath(); ctx.arc(cx, cy, 110, 0, Math.PI * 2); ctx.stroke();
+
+                        ctx.fillStyle = '#E68A1E';
+                        ctx.beginPath(); ctx.arc(cx, cy, 18, 0, Math.PI * 2); ctx.fill();
+
+                        let angle = frame * 0.04;
+                        let ex1 = cx + Math.cos(angle) * 70, ey1 = cy + Math.sin(angle) * 70;
+                        let ex2 = cx + Math.cos(-angle * 1.5) * 110, ey2 = cy + Math.sin(-angle * 1.5) * 110;
+                        ctx.fillStyle = '#38BDF8';
+                        ctx.beginPath(); ctx.arc(ex1, ey1, 8, 0, Math.PI * 2); ctx.fill();
+                        ctx.beginPath(); ctx.arc(ex2, ey2, 8, 0, Math.PI * 2); ctx.fill();
+                    } else if (this.currentSubject.id === 'biology') {
+                        let cx = canvas.width / 2;
+                        for (let i = 0; i < 12; i++) {
+                            let y = i * 25 + 20;
+                            let x1 = cx + Math.sin(frame * 0.05 + i * 0.4) * 80;
+                            let x2 = cx - Math.sin(frame * 0.05 + i * 0.4) * 80;
+                            ctx.strokeStyle = 'rgba(230, 138, 30, 0.6)';
+                            ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.stroke();
+                            ctx.fillStyle = '#38BDF8';
+                            ctx.beginPath(); ctx.arc(x1, y, 7, 0, Math.PI * 2); ctx.fill();
+                            ctx.fillStyle = '#E68A1E';
+                            ctx.beginPath(); ctx.arc(x2, y, 7, 0, Math.PI * 2); ctx.fill();
+                        }
+                    } else {
+                        let cx = canvas.width / 2, cy = 60;
+                        let len = 140;
+                        let angle = Math.sin(frame * 0.05) * 0.8;
+                        let px = cx + Math.sin(angle) * len;
+                        let py = cy + Math.cos(angle) * len;
+
+                        ctx.strokeStyle = '#38BDF8';
+                        ctx.lineWidth = 2;
+                        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(px, py); ctx.stroke();
+                        ctx.fillStyle = '#E68A1E';
+                        ctx.beginPath(); ctx.arc(px, py, 16, 0, Math.PI * 2); ctx.fill();
+                    }
+                }, 30);
+            },
+
+            openQuizPage() {
+                this.navigate('quiz');
+                document.getElementById('quiz-topic-subtitle').innerText = this.currentTopic.title;
+                const container = document.getElementById('quiz-arena-content');
+                container.innerHTML = `
+                    <div class="space-y-4">
+                        <p class="text-xs text-slate-300 font-semibold">Test your mastery of ${this.currentTopic.title}.</p>
+                        <p class="text-base font-bold text-white">What is the primary core concept demonstrated in this module?</p>
+                        <div class="space-y-3 pt-2">
+                            <button onclick="app.checkQuiz(true)" class="w-full text-left p-4 rounded-xl bg-slate-900 hover:bg-amber-950/50 border border-slate-800 hover:border-brand-amber text-sm text-slate-200 transition">A) ${this.currentTopic.summary}</button>
+                            <button onclick="app.checkQuiz(false)" class="w-full text-left p-4 rounded-xl bg-slate-900 hover:bg-amber-950/50 border border-slate-800 hover:border-brand-amber text-sm text-slate-200 transition">B) Random data noise with no structural logic</button>
+                        </div>
+                    </div>
+                `;
+            },
+
+            checkQuiz(isCorrect) {
+                const container = document.getElementById('quiz-arena-content');
+                if (isCorrect) {
+                    if (!this.user.completedTopics) this.user.completedTopics = [];
+                    if (!this.user.completedTopics.includes(this.currentTopic.id)) {
+                        this.user.completedTopics.push(this.currentTopic.id);
+                        this.user.xp += 25;
+                        localStorage.setItem('nga_user', JSON.stringify(this.user));
+                    }
+                    container.innerHTML = `
+                        <div class="p-6 rounded-2xl bg-green-950/40 border border-green-500/40 text-center space-y-3">
+                            <i class="fa-solid fa-circle-check text-4xl text-green-400"></i>
+                            <h3 class="font-display font-bold text-white text-xl">Correct! +25 XP Earned</h3>
+                            <p class="text-xs text-slate-300">Fantastic job mastering this topic! Your progress has been saved.</p>
+                            <div class="flex items-center justify-center space-x-3 pt-2">
+                                <button onclick="app.backToLesson()" class="px-5 py-2.5 rounded-xl bg-slate-800 text-white font-bold text-xs">Back to Animation</button>
+                                <button onclick="app.openQuizPage()" class="px-5 py-2.5 rounded-xl bg-green-600 text-white font-bold text-xs">Retake Quiz</button>
+                            </div>
+                        </div>
+                    `;
+                    confetti({ particleCount: 70, spread: 70, origin: { y: 0.6 } });
+                } else {
+                    container.innerHTML += `
+                        <div class="p-4 rounded-xl bg-red-950/40 border border-red-500/40 text-center text-xs text-red-300 mt-3">
+                            <i class="fa-solid fa-circle-xmark"></i> Incorrect. Review the explanation and try again!
+                        </div>
+                    `;
+                }
+            },
+
+            renderProgress() {
+                document.getElementById('progress-xp').innerText = this.user.xp;
+                const completedCount = this.user.completedTopics ? this.user.completedTopics.length : 0;
+                document.getElementById('stat-completed').innerText = completedCount;
+                document.getElementById('stat-rank').innerText = completedCount > 5 ? 'Master Scholar' : 'Explorer';
+
+                const list = document.getElementById('completed-topics-list');
+                list.innerHTML = '';
+
+                if (completedCount === 0) {
+                    list.innerHTML = `<p class="text-xs text-slate-400 italic">No modules completed yet. Explore subject sections and pass quizzes to earn XP!</p>`;
+                } else {
+                    this.user.completedTopics.forEach(tId => {
+                        let foundTitle = tId;
+                        Object.values(SUBJECTS).forEach(sub => {
+                            let match = sub.topics.find(t => t.id === tId);
+                            if (match) foundTitle = `${sub.title} — ${match.title}`;
+                        });
+                        list.innerHTML += `
+                            <div class="glass-panel p-3.5 rounded-xl border-slate-800 flex items-center justify-between text-xs">
+                                <span class="font-bold text-white"><i class="fa-solid fa-circle-check text-green-400 mr-2"></i> ${foundTitle}</span>
+                                <span class="text-brand-amber font-bold">+25 XP</span>
+                            </div>
+                        `;
+                    });
+                }
+            },
+
+            toggleVoiceNote() {
+                if (!('speechSynthesis' in window)) {
+                    alert('Speech synthesis not supported in this browser.');
+                    return;
+                }
+                if (this.isSpeaking) {
+                    this.stopSpeech();
+                } else {
+                    this.startSpeech();
+                }
+            },
+
+            startSpeech() {
+                window.speechSynthesis.cancel();
+                const text = `${this.currentTopic.title}. ${this.currentTopic.summary}. ${this.currentTopic.content}`;
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = this.audioSpeed;
+
+                utterance.onstart = () => {
+                    this.isSpeaking = true;
+                    document.getElementById('audio-icon').className = 'fa-solid fa-pause';
+                    document.getElementById('audio-status-text').innerText = 'Playing Audio Breakdown...';
+                };
+                utterance.onend = () => {
+                    this.isSpeaking = false;
+                    document.getElementById('audio-icon').className = 'fa-solid fa-play';
+                    document.getElementById('audio-status-text').innerText = 'Playback finished. Click to replay.';
+                };
+
+                window.speechSynthesis.speak(utterance);
+            },
+
+            stopSpeech() {
+                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+                this.isSpeaking = false;
+                const icon = document.getElementById('audio-icon');
+                if (icon) icon.className = 'fa-solid fa-play';
+                const status = document.getElementById('audio-status-text');
+                if (status) status.innerText = 'Listen to 1-minute breakdown';
+            },
+
+            setAudioSpeed(spd) {
+                this.audioSpeed = spd;
+                ['spd-1', 'spd-125', 'spd-15'].forEach(id => {
+                    document.getElementById(id).className = 'px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-slate-400 border border-slate-700';
+                });
+                if (spd === 1) document.getElementById('spd-1').className = 'px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700';
+                if (spd === 1.25) document.getElementById('spd-125').className = 'px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700';
+                if (spd === 1.5) document.getElementById('spd-15').className = 'px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-bold text-brand-amber border border-slate-700';
+                if (this.isSpeaking) this.startSpeech();
+            }
+        };
+
+        window.onload = () => app.init();
+    </script>
+</body>
+</html
